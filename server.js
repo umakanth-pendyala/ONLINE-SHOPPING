@@ -29,7 +29,9 @@ app.use(
     secret: "some-random-secret-key",
     resave: true,
     saveUninitialized: false,
-    cookie: { maxAge: 600000 },
+    cookie: {
+      /*maxAge: 600000*/
+    },
   })
 );
 

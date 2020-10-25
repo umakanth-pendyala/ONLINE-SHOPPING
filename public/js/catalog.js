@@ -1,3 +1,5 @@
+const { type } = require("jquery");
+
 const signInButton = document.querySelectorAll(".modal-footer button")[1];
 const userLoggedIn = false;
 
@@ -19,6 +21,12 @@ $(signInButton).on("click", () => {
 });
 
 const checkUserLoggedIn = () => {
+  const email = "<%= email %>";
+  const username = "<%= username %>";
+
+  console.log("user email", email);
+  console.log("user name", username);
+  console.log(typeof email);
   if (!userLoggedIn) {
     const navItems = document.querySelectorAll("#custom-nav-items .custom-nav-item");
     const orders = navItems[0].querySelector("a");

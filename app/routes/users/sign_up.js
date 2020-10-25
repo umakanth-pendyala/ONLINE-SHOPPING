@@ -3,13 +3,13 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const userSchema = require("../../models/user_schema");
 const querystring = require("querystring");
-const session = require("express-session");
 
 router.get("/sign_up", (req, res) => {
   res.render("signup");
 });
 
 router.post("/sign_up", async (req, res) => {
+  let userInforamtion;
   const User = mongoose.model("user", userSchema);
   req.body.homeAddress = "new nullakunta";
   try {
@@ -21,11 +21,18 @@ router.post("/sign_up", async (req, res) => {
     });
     const result = await user.save();
     if (result != null || result != undefined) {
-      req.session.username = result.username;
-      req.session.cookie.expires = false;
+      userInformation = {
+        email: result.email,
+        username: result.name,
+      };
+      req.session.userInformation = userInformation;
+      // req.session.cookie.expires = false;
       req.session.save(err => {
         if (err) res.send("opps ! session expired");
-        res.redirect("/");
+        else {
+          res.redirect("/");
+          return;
+        }
       });
       return;
     } else {

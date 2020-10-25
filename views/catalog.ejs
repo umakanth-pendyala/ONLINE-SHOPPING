@@ -53,12 +53,20 @@
         </div>
         <div id="custom-nav-items">
           <ul>
+            <% if (email != null && username != null) { %>
+            <div class="custom-nav-item">
+              <p class="server-incomming">welcome</p>
+              <p class="server-incomming"><%= username %></p>
+            </div>
+            <% } %>
             <div class="custom-nav-item">
               <a href="./tracker.html" class="custom-primary-hover">Orders</a>
             </div>
             <div class="custom-nav-item">
               <a href="" class="custom-primary-hover">Cart</a>
             </div>
+
+            <% if (email == null && username == null) { %>
             <div class="custom-nav-item">
               <a href="" class="custom-primary-hover" data-toggle="modal" data-target="#exampleModalCenter">Sign in</a>
               <div
@@ -100,6 +108,7 @@
                 </div>
               </div>
             </div>
+            <% } %>
           </ul>
         </div>
       </div>
@@ -263,5 +272,54 @@
       <h4>All Copy rights reserverd &copy; 2020</h4>
     </footer>
   </body>
-  <script src="/js/catalog.js"></script>
+
+  <script>
+    // const signInButton = document.querySelectorAll(".modal-footer button")[1];
+    var userLoggedIn = false;
+
+    // $(signInButton).on("click", () => {
+    //   $.ajax({
+    //     url: "/user/sign_in",
+    //     data: JSON.stringify({
+    //       name: "umakanth pendyala",
+    //     }),
+    //     contentType: "application/json",
+    //     type: "POST",
+    //     success: data => {
+    //       alert("success");
+    //     },
+    //     error: data => {
+    //       alert("error connecting to the server");
+    //     },
+    //   });
+    // });
+
+    const checkUserLoggedIn = () => {
+      const email = "<%= email %>";
+      const username = "<%= username %>";
+
+      if (email.length != 0 && username.length != 0) {
+        userLoggedIn = true;
+      }
+
+      if (!userLoggedIn) {
+        const navItems = document.querySelectorAll("#custom-nav-items .custom-nav-item");
+        const orders = navItems[0].querySelector("a");
+        const Cart = navItems[1].querySelector("a");
+
+        orders.style.visibility = "hidden";
+        Cart.style.visibility = "hidden";
+      } else {
+        const navItems = document.querySelectorAll("#custom-nav-items .custom-nav-item");
+        const orders = navItems[0].querySelector("a");
+        const Cart = navItems[1].querySelector("a");
+
+        orders.style.visibility = "visible";
+        Cart.style.visibility = "visible";
+      }
+    };
+
+    checkUserLoggedIn();
+  </script>
+  <!-- <script src="/js/catalog.js"></script> -->
 </html>

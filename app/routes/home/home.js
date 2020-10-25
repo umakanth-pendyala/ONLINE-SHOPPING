@@ -2,11 +2,15 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  if (req.session.username != null || req.session.username != undefined) {
-    console.log('user name from home route "/" is', req.username);
+  userData = {
+    email: null,
+    username: null,
+  };
+  if (req.session.userInformation != null || req.session.userInformation != undefined) {
+    userData = req.session.userInformation;
   }
-  console.log(req.session);
-  res.render("catalog");
+  res.render("catalog", userData);
+  return;
 });
 
 module.exports = router;
