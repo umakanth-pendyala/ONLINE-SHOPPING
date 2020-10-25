@@ -1,0 +1,10 @@
+catalog page
+  products
+  search bar
+  
+orders page
+cart page
+tracker page
+
+sign up
+sign in

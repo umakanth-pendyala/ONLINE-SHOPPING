@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order history</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="./css/orders.css" />
+  </head>
+  <body>
+    <!-- custom nav start -->
+    <nav id="custom-nav-bar">
+      <div class="custom-nav-container">
+        <div class="custom-logo">
+          <h1>PROTOMIX</h1>
+        </div>
+        <div class="custom-search-bar">
+          <form action="" method="POST">
+            <input
+              type="custom-text"
+              name="search-input"
+              id=""
+              placeholder="Search Products, brands and more"
+              class="custom-search-box"
+            />
+            <button type="submit" class="custom-btn custom-btn-primary"><i class="fas fa-search fa-1x"></i></button>
+          </form>
+        </div>
+        <div id="custom-nav-items">
+          <ul>
+            <div class="custom-nav-item">
+              <a href="./tracker.html" class="custom-primary-hover">Orders</a>
+            </div>
+            <div class="nav-item">
+              <a href="" class="custom-primary-hover">Cart</a>
+            </div>
+            <div class="nav-item">
+              <a href="" class="custom-primary-hover" data-toggle="modal" data-target="#exampleModalCenter">Logout</a>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- custom nav end -->
+    <header>
+      <div class="custom-container head-wrapper">
+        <div class="l-heading"><h1>Your Orders</h1></div>
+        <div class="custom-form-wrapper">
+          <form action="" method="">
+            <input type="text" placeholder="search all orders" />
+            <button type="submit">Search orders</button>
+          </form>
+        </div>
+      </div>
+    </header>
+    <!-- orders history section -->
+    <section id="orders-history">
+      <div class="custom-container">
+        <div class="order-card">
+          <div class="order-card-header">
+            <div class="header-part-1 mg-x-1">
+              <h4>Order placed</h4>
+              <h4>10 oct 2020</h4>
+            </div>
+            <div class="header-part-2 mg-x-1">
+              <h4>TOTAL</h4>
+              <h4>$500</h4>
+            </div>
+            <div class="header-part-3 mg-x-1">
+              <h4>SHIP TO</h4>
+              <h5>Umakanth pendyala</h5>
+            </div>
+          </div>
+          <div class="order-card-tail">
+            <div class="order-description">
+              <h4>Not Yet Delivered</h4>
+              <div class="product-description">
+                <img src="https://m.media-amazon.com/images/I/81R9GYbvS+L._AC_UY327_FMwebp_QL65_.jpg" alt="" />
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus pariatur dolores veritatis, delectus
+                  architecto nesciunt nihil nostrum error rem vitae amet minus doloribus. Consectetur magnam nihil eius, nulla
+                  laboriosam voluptas. Quos, tempora! Id tenetur possimus, officia sint delectus laboriosam odio ab eveniet esse
+                  obcaecati? Minus consequatur corporis error ducimus temporibus.
+                </p>
+              </div>
+            </div>
+            <div class="tracker-button">
+              <button type="submit">Track Package</button>
+            </div>
+          </div>
+        </div>
+        <div class="order-card">
+          <div class="order-card-header">
+            <div class="header-part-1 mg-x-1">
+              <h4>Order placed</h4>
+              <h4>10 oct 2020</h4>
+            </div>
+            <div class="header-part-2 mg-x-1">
+              <h4>TOTAL</h4>
+              <h4>$500</h4>
+            </div>
+            <div class="header-part-3 mg-x-1">
+              <h4>SHIP TO</h4>
+              <h5>Umakanth pendyala</h5>
+            </div>
+          </div>
+          <div class="order-card-tail">
+            <div class="order-description">
+              <h4>Not Yet Delivered</h4>
+              <div class="product-description">
+                <img src="https://m.media-amazon.com/images/I/81R9GYbvS+L._AC_UY327_FMwebp_QL65_.jpg" alt="" />
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus pariatur dolores veritatis, delectus
+                  architecto nesciunt nihil nostrum error rem vitae amet minus doloribus. Consectetur magnam nihil eius, nulla
+                  laboriosam voluptas. Quos, tempora! Id tenetur possimus, officia sint delectus laboriosam odio ab eveniet esse
+                  obcaecati? Minus consequatur corporis error ducimus temporibus.
+                </p>
+              </div>
+            </div>
+            <div class="tracker-button">
+              <button type="submit">Track Package</button>
+            </div>
+          </div>
+        </div>
+        <div class="order-card">
+          <div class="order-card-header">
+            <div class="header-part-1 mg-x-1">
+              <h4>Order placed</h4>
+              <h4>10 oct 2020</h4>
+            </div>
+            <div class="header-part-2 mg-x-1">
+              <h4>TOTAL</h4>
+              <h4>$500</h4>
+            </div>
+            <div class="header-part-3 mg-x-1">
+              <h4>SHIP TO</h4>
+              <h5>Umakanth pendyala</h5>
+            </div>
+          </div>
+          <div class="order-card-tail">
+            <div class="order-description">
+              <h4>Not Yet Delivered</h4>
+              <div class="product-description">
+                <img src="https://m.media-amazon.com/images/I/81R9GYbvS+L._AC_UY327_FMwebp_QL65_.jpg" alt="" />
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus pariatur dolores veritatis, delectus
+                  architecto nesciunt nihil nostrum error rem vitae amet minus doloribus. Consectetur magnam nihil eius, nulla
+                  laboriosam voluptas. Quos, tempora! Id tenetur possimus, officia sint delectus laboriosam odio ab eveniet esse
+                  obcaecati? Minus consequatur corporis error ducimus temporibus.
+                </p>
+              </div>
+            </div>
+            <div class="tracker-button">
+              <button type="submit">Track Package</button>
+            </div>
+          </div>
+        </div>
+        <div class="order-card">
+          <div class="order-card-header">
+            <div class="header-part-1 mg-x-1">
+              <h4>Order placed</h4>
+              <h4>10 oct 2020</h4>
+            </div>
+            <div class="header-part-2 mg-x-1">
+              <h4>TOTAL</h4>
+              <h4>$500</h4>
+            </div>
+            <div class="header-part-3 mg-x-1">
+              <h4>SHIP TO</h4>
+              <h5>Umakanth pendyala</h5>
+            </div>
+          </div>
+          <div class="order-card-tail">
+            <div class="order-description">
+              <h4>Not Yet Delivered</h4>
+              <div class="product-description">
+                <img src="https://m.media-amazon.com/images/I/81R9GYbvS+L._AC_UY327_FMwebp_QL65_.jpg" alt="" />
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus pariatur dolores veritatis, delectus
+                  architecto nesciunt nihil nostrum error rem vitae amet minus doloribus. Consectetur magnam nihil eius, nulla
+                  laboriosam voluptas. Quos, tempora! Id tenetur possimus, officia sint delectus laboriosam odio ab eveniet esse
+                  obcaecati? Minus consequatur corporis error ducimus temporibus.
+                </p>
+              </div>
+            </div>
+            <div class="tracker-button">
+              <button type="submit">Track Package</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="custom-container">
+        <div class="foot-wrapper">
+          <h5>All rights reserved &copy; 2020</h5>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+
+
