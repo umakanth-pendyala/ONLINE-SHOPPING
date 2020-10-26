@@ -8,6 +8,11 @@ router.get("/", (req, res) => {
   };
   if (req.session.userInformation != null || req.session.userInformation != undefined) {
     userData = req.session.userInformation;
+  } else {
+    userData = {
+      email: null,
+      username: null,
+    };
   }
   res.render("catalog", userData);
   return;

@@ -65,7 +65,6 @@
             <div class="custom-nav-item">
               <a href="" class="custom-primary-hover">Cart</a>
             </div>
-
             <% if (email == null && username == null) { %>
             <div class="custom-nav-item">
               <a href="" class="custom-primary-hover" data-toggle="modal" data-target="#exampleModalCenter">Sign in</a>
@@ -108,7 +107,11 @@
                 </div>
               </div>
             </div>
-            <% } %>
+            <% } else {%>
+            <div class="custom-nav-item">
+              <a href="/user/logout" class="custom-primary-hover">log out</a>
+            </div>
+            <% }%>
           </ul>
         </div>
       </div>
@@ -274,35 +277,16 @@
   </body>
 
   <script>
-    // const signInButton = document.querySelectorAll(".modal-footer button")[1];
-    var userLoggedIn = false;
-
-    // $(signInButton).on("click", () => {
-    //   $.ajax({
-    //     url: "/user/sign_in",
-    //     data: JSON.stringify({
-    //       name: "umakanth pendyala",
-    //     }),
-    //     contentType: "application/json",
-    //     type: "POST",
-    //     success: data => {
-    //       alert("success");
-    //     },
-    //     error: data => {
-    //       alert("error connecting to the server");
-    //     },
-    //   });
-    // });
-
-    const checkUserLoggedIn = () => {
+    var userSignedIn = false;
+    const checkUserSignedIn = () => {
       const email = "<%= email %>";
       const username = "<%= username %>";
 
       if (email.length != 0 && username.length != 0) {
-        userLoggedIn = true;
+        userSignedIn = true;
       }
 
-      if (!userLoggedIn) {
+      if (!userSignedIn) {
         const navItems = document.querySelectorAll("#custom-nav-items .custom-nav-item");
         const orders = navItems[0].querySelector("a");
         const Cart = navItems[1].querySelector("a");
@@ -318,8 +302,7 @@
         Cart.style.visibility = "visible";
       }
     };
-
-    checkUserLoggedIn();
+    checkUserSignedIn();
   </script>
-  <!-- <script src="/js/catalog.js"></script> -->
+  <script src="/js/catalog.js"></script>
 </html>
