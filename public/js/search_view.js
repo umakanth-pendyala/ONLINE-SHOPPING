@@ -8,7 +8,7 @@ const giveUserPrivelages = username => {
       <p class="server-incomming">${username}</p>
     </div>
     <div class="custom-nav-item">
-      <a href="/user/orders" class="custom-primary-hover">Orders</a>
+      <a href="./tracker.html" class="custom-primary-hover">Orders</a>
     </div>
     <div class="custom-nav-item">
       <a href="" class="custom-primary-hover">Cart</a>
@@ -26,6 +26,7 @@ const giveUserPrivelages = username => {
   navItems.innerHTML = html;
 };
 //******************************************************* */
+
 const showErrorMessage = () => {
   const errorMessage = `
     <div class="alert alert-danger" role="alert">
@@ -44,7 +45,7 @@ const showErrorMessage = () => {
 //*************************************************** */
 
 /**
- * AJAX FUNCTIONALITY
+ * AJAX CALL TO VALIDATE USER. (LOGIN MODULE)
  */
 $(signInButton).on("click", () => {
   const email = document.querySelector(
@@ -84,6 +85,7 @@ const setDataList = incommingProducts => {
   const products = incommingProducts.matchedProducts;
   dataList.innerHTML = "";
   products.forEach(product => {
+    // console.log(product);
     dataList.innerHTML += `<option value=${product.productName}>`;
   });
 };

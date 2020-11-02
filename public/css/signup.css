@@ -1,9 +1,10 @@
 :root {
-  --primary-gradient-color: #78b955;
-  --secondary-gradient-color: #8cc26e;
-  --primary-form-color: #6f9d55;
+  /* --primary-gradient-color: #78b955; */
+  --primary-gradient-color: #ccc;
+  --secondary-gradient-color: #eee;
+  --primary-form-color: #555;
   --secondary-form-color: #7bbb5a;
-  --font-color: #e6efd8;
+  --font-color: #333;
 }
 
 * {
@@ -15,7 +16,18 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-image: linear-gradient(to top, var(--primary-gradient-color), var(--secondary-gradient-color));
-  height: 100vh;
+  /* height: 100vh; */
+}
+
+.l-heading-container {
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  padding: 1rem 0.5rem;
+}
+
+.l-heading-container a {
+  color: #333;
 }
 
 .custom-container {
@@ -43,6 +55,7 @@ body {
 
 .custom-container .custom-form-wrapper form .custom-form-group label {
   margin: 0;
+  color: #fff;
 }
 
 .custom-container .custom-form-wrapper form .custom-form-group input {
@@ -65,9 +78,14 @@ body {
   color: var(--font-color);
 }
 
+.custom-container h1 {
+  text-align: left;
+}
+
 p {
   margin: 1rem 0;
   text-align: center;
+  color: #ccc;
 }
 
 a {
@@ -78,6 +96,11 @@ a {
 a:hover {
   text-decoration: none;
   color: var(--font-color);
+}
+
+textarea {
+  border-radius: 5px;
+  padding: 0.2rem 0.5rem;
 }
 
 .custom-container .custom-form-wrapper form button:hover {

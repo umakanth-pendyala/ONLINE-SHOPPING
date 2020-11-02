@@ -33,7 +33,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet" href="/css/orders.css" />
+    <link rel="stylesheet" href="/css/cart.css" />
   </head>
   <body>
     <!-- custom nav start -->
@@ -68,7 +68,7 @@
               <a href="/user/orders" class="custom-primary-hover">Orders</a>
             </div>
             <div class="custom-nav-item">
-              <a href="/user/cart" class="custom-primary-hover">Cart</a>
+              <a href="" class="custom-primary-hover">Cart</a>
             </div>
             <% } %> <% if (userData.email == null && userData.username == null) { %>
             <div class="custom-nav-item">
@@ -124,7 +124,7 @@
     <!-- custom nav end -->
     <header>
       <div class="custom-container head-wrapper">
-        <div class="l-heading"><h1>Your Orders</h1></div>
+        <div class="l-heading"><h1>Your Cart</h1></div>
         <div class="custom-form-wrapper">
           <form action="" method="">
             <input type="text" placeholder="search all orders" />
@@ -169,16 +169,16 @@
             </div>
           </div>
         </div> -->
-        <%for (var i = productsData.productsOrdered.length - 1; i >= 0; i--) {%>
+        <%for (var i = productsData.productsInCart.length - 1; i >= 0; i--) {%>
         <div class="order-card">
           <div class="order-card-header">
             <div class="header-part-1 mg-x-1">
-              <h4>Order placed</h4>
-              <h4><%= productsData.productsOrdered[i].estimatedDelivaryDate%></h4>
+              <h4>Product In cart from</h4>
+              <h4><%= productsData.productsInCart[i].estimatedDelivaryDate%></h4>
             </div>
             <div class="header-part-2 mg-x-1">
               <h4>TOTAL</h4>
-              <h4><%= productsData.productsOrdered[i].price%></h4>
+              <h4><%= productsData.productsInCart[i].price%></h4>
             </div>
             <div class="header-part-3 mg-x-1">
               <h4>SHIP TO</h4>
@@ -187,119 +187,20 @@
           </div>
           <div class="order-card-tail">
             <div class="order-description">
-              <h4><%= productsData.productsOrdered[i].delivaryStatus%></h4>
+              <h4>Not Yet Ordered</h4>
               <div class="product-description">
-                <img src="<%= productsData.productsOrdered[i].productImage%>" alt="" />
-                <p><%= productsData.productsOrdered[i].productDescription%></p>
+                <img src="<%= productsData.productsInCart[i].productImage%>" alt="" />
+                <p><%= productsData.productsInCart[i].productDescription%></p>
               </div>
             </div>
             <div class="tracker-button">
-              <a href="/user/order/<%= productsData.productsOrdered[i]._id %>/tracker">
-                <button type="button">Track Package</button>
-              </a>
+              <a href="/user/addtoorders/<%= productsData.productsInCart[i].productId%>"
+                ><button type="button">Order Now</button></a
+              >
             </div>
           </div>
         </div>
         <%}%>
-        <!-- <div class="order-card">
-          <div class="order-card-header">
-            <div class="header-part-1 mg-x-1">
-              <h4>Order placed</h4>
-              <h4>10 oct 2020</h4>
-            </div>
-            <div class="header-part-2 mg-x-1">
-              <h4>TOTAL</h4>
-              <h4>$500</h4>
-            </div>
-            <div class="header-part-3 mg-x-1">
-              <h4>SHIP TO</h4>
-              <h5>Umakanth pendyala</h5>
-            </div>
-          </div>
-          <div class="order-card-tail">
-            <div class="order-description">
-              <h4>Not Yet Delivered</h4>
-              <div class="product-description">
-                <img src="https://m.media-amazon.com/images/I/81R9GYbvS+L._AC_UY327_FMwebp_QL65_.jpg" alt="" />
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus pariatur dolores veritatis, delectus
-                  architecto nesciunt nihil nostrum error rem vitae amet minus doloribus. Consectetur magnam nihil eius, nulla
-                  laboriosam voluptas. Quos, tempora! Id tenetur possimus, officia sint delectus laboriosam odio ab eveniet esse
-                  obcaecati? Minus consequatur corporis error ducimus temporibus.
-                </p>
-              </div>
-            </div>
-            <div class="tracker-button">
-              <button type="submit">Track Package</button>
-            </div>
-          </div>
-        </div> -->
-        <!-- <div class="order-card">
-          <div class="order-card-header">
-            <div class="header-part-1 mg-x-1">
-              <h4>Order placed</h4>
-              <h4>10 oct 2020</h4>
-            </div>
-            <div class="header-part-2 mg-x-1">
-              <h4>TOTAL</h4>
-              <h4>$500</h4>
-            </div>
-            <div class="header-part-3 mg-x-1">
-              <h4>SHIP TO</h4>
-              <h5>Umakanth pendyala</h5>
-            </div>
-          </div>
-          <div class="order-card-tail">
-            <div class="order-description">
-              <h4>Not Yet Delivered</h4>
-              <div class="product-description">
-                <img src="https://m.media-amazon.com/images/I/81R9GYbvS+L._AC_UY327_FMwebp_QL65_.jpg" alt="" />
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus pariatur dolores veritatis, delectus
-                  architecto nesciunt nihil nostrum error rem vitae amet minus doloribus. Consectetur magnam nihil eius, nulla
-                  laboriosam voluptas. Quos, tempora! Id tenetur possimus, officia sint delectus laboriosam odio ab eveniet esse
-                  obcaecati? Minus consequatur corporis error ducimus temporibus.
-                </p>
-              </div>
-            </div>
-            <div class="tracker-button">
-              <button type="submit">Track Package</button>
-            </div>
-          </div>
-        </div> -->
-        <!-- <div class="order-card">
-          <div class="order-card-header">
-            <div class="header-part-1 mg-x-1">
-              <h4>Order placed</h4>
-              <h4>10 oct 2020</h4>
-            </div>
-            <div class="header-part-2 mg-x-1">
-              <h4>TOTAL</h4>
-              <h4>$500</h4>
-            </div>
-            <div class="header-part-3 mg-x-1">
-              <h4>SHIP TO</h4>
-              <h5>Umakanth pendyala</h5>
-            </div>
-          </div>
-          <div class="order-card-tail">
-            <div class="order-description">
-              <h4>Not Yet Delivered</h4>
-              <div class="product-description">
-                <img src="https://m.media-amazon.com/images/I/81R9GYbvS+L._AC_UY327_FMwebp_QL65_.jpg" alt="" />
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus pariatur dolores veritatis, delectus
-                  architecto nesciunt nihil nostrum error rem vitae amet minus doloribus. Consectetur magnam nihil eius, nulla
-                  laboriosam voluptas. Quos, tempora! Id tenetur possimus, officia sint delectus laboriosam odio ab eveniet esse
-                  obcaecati? Minus consequatur corporis error ducimus temporibus.
-                </p>
-              </div>
-            </div>
-            <div class="tracker-button">
-              <button type="submit">Track Package</button>
-            </div>
-          </div>
-        </div> -->
       </div>
     </section>
     <footer>
@@ -311,5 +212,5 @@
     </footer>
   </body>
   <script></script>
-  <script src="/js/orders.js"></script>
+  <script src="/js/cart.js"></script>
 </html>

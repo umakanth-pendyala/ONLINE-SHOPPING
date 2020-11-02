@@ -118,15 +118,15 @@ button {
   justify-content: center;
   align-items: center;
 }
-
 #orders-history .order-card .order-card-tail .tracker-button a {
-  width: 100%;
+  width: 60%;
   text-align: center;
 }
 
-#orders-history .order-card .order-card-tail .tracker-button button {
-  width: 60%;
+#orders-history .order-card .order-card-tail .tracker-button a button {
+  width: 100%;
   padding: 0.5rem 0;
+  align-self: center;
   text-align: center;
 }
 

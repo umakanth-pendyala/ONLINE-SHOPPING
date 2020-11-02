@@ -36,6 +36,11 @@ h5 {
   margin-bottom: 1rem;
 }
 
+.l-heading a {
+  color: #444;
+  text-decoration: none;
+}
+
 /* tracker styles (imported) */
 
 .card {

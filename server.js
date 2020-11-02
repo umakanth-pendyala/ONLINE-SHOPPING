@@ -9,6 +9,8 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
   },
   err => {
     if (!err) console.log("successfull");
@@ -16,24 +18,24 @@ mongoose.connect(
   }
 );
 
-//middle wares
-app.use(express.static("public"));
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-);
-app.set("view engine", "ejs");
-app.use(
-  session({
-    secret: "some-random-secret-key",
-    resave: true,
-    saveUninitialized: false,
-    cookie: {
-      /*maxAge: 600000*/
-    },
-  })
-);
+//middle wares  shifted to index js file
+// app.use(express.static("public"));
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: true,
+//   })
+// );
+// app.set("view engine", "ejs");
+// app.use(
+//   session({
+//     secret: "some-random-secret-key",
+//     resave: true,
+//     saveUninitialized: false,
+//     cookie: {
+//       /*maxAge: 600000*/
+//     },
+//   })
+// );
 
 require("./app/routes")(app);
 

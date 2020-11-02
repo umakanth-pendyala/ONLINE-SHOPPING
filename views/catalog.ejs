@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>ONLINE SHOPPING</title>
-
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
@@ -34,38 +33,41 @@
     <link rel="stylesheet" href="/css/catalog.css" />
   </head>
   <body>
+    <!-- nav bar section -->
     <nav id="custom-nav-bar">
       <div class="custom-nav-container">
         <div class="custom-logo">
-          <h1>PROTOMIX</h1>
+          <a href="/"><h1>PROTOMIX</h1></a>
         </div>
         <div class="custom-search-bar">
-          <form action="" method="POST">
+          <form action="/search_result" method="POST">
             <input
+              autocomplete="off"
               type="custom-text"
               name="search-input"
+              list="suggestions"
               id=""
               placeholder="Search Products, brands and more"
               class="custom-search-box"
             />
+            <datalist id="suggestions"></datalist>
             <button type="submit" class="custom-btn custom-btn-primary"><i class="fas fa-search fa-1x"></i></button>
           </form>
         </div>
         <div id="custom-nav-items">
           <ul>
-            <% if (email != null && username != null) { %>
+            <% if (userData.email != null && userData.username != null) { %>
             <div class="custom-nav-item">
               <p class="server-incomming">welcome</p>
-              <p class="server-incomming"><%= username %></p>
-            </div>
-            <% } %>
-            <div class="custom-nav-item">
-              <a href="./tracker.html" class="custom-primary-hover">Orders</a>
+              <p class="server-incomming"><%= userData.username %></p>
             </div>
             <div class="custom-nav-item">
-              <a href="" class="custom-primary-hover">Cart</a>
+              <a href="/user/orders" class="custom-primary-hover">Orders</a>
             </div>
-            <% if (email == null && username == null) { %>
+            <div class="custom-nav-item">
+              <a href="/user/cart" class="custom-primary-hover">Cart</a>
+            </div>
+            <% } %> <% if (userData.email == null && userData.username == null) { %>
             <div class="custom-nav-item">
               <a href="" class="custom-primary-hover" data-toggle="modal" data-target="#exampleModalCenter">Sign in</a>
               <div
@@ -152,6 +154,7 @@
         </a>
       </div>
     </section>
+
     <!-- text section -->
     <section id="custom-section-2">
       <div class="custom-sub-heading">
@@ -162,13 +165,21 @@
     <!-- product catalog -->
     <section id="custom-section-3">
       <div class="container custom-wrapper">
-        <div class="custom-card">
+        <!-- <div class="custom-card">
           <a href="">
             <img src="https://m.media-amazon.com/images/I/71ZSpNjEl0L._AC_UL480_FMwebp_QL65_.jpg" alt="" />
             <h4>Watches</h4>
           </a>
-        </div>
+        </div> -->
+        <% for (var i = 0; i < products.length; i++) {%>
         <div class="custom-card">
+          <a href="/product/<%= products[i]._id%>">
+            <img src="<%= products[i].productImage%>" alt="" />
+            <h4><%= products[i].productName %></h4>
+          </a>
+        </div>
+        <% }%>
+        <!-- <div class="custom-card">
           <a href="">
             <img
               src="https://rukminim1.flixcart.com/image/150/150/k9stjm80/headphone/y/u/x/rockerz-255-pro-fast-charging-rockerz-255f-pro-boat-original-imafrgnpjpu7zfgz.jpeg?q=70"
@@ -266,7 +277,7 @@
             />
             <h4>San disk</h4>
           </a>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -277,32 +288,9 @@
   </body>
 
   <script>
-    var userSignedIn = false;
-    const checkUserSignedIn = () => {
-      const email = "<%= email %>";
-      const username = "<%= username %>";
-
-      if (email.length != 0 && username.length != 0) {
-        userSignedIn = true;
-      }
-
-      if (!userSignedIn) {
-        const navItems = document.querySelectorAll("#custom-nav-items .custom-nav-item");
-        const orders = navItems[0].querySelector("a");
-        const Cart = navItems[1].querySelector("a");
-
-        orders.style.visibility = "hidden";
-        Cart.style.visibility = "hidden";
-      } else {
-        const navItems = document.querySelectorAll("#custom-nav-items .custom-nav-item");
-        const orders = navItems[0].querySelector("a");
-        const Cart = navItems[1].querySelector("a");
-
-        orders.style.visibility = "visible";
-        Cart.style.visibility = "visible";
-      }
-    };
-    checkUserSignedIn();
+    // console.log("empth");
+    // const data = `<%- products.length %>`;
+    // console.log(data);
   </script>
   <script src="/js/catalog.js"></script>
 </html>
