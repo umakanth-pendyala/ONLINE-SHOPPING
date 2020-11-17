@@ -39,7 +39,9 @@ const showErrorMessage = () => {
 
   const modalDialog = document.querySelector("#custom-nav-items ul .custom-nav-item .modal-dialog .modal-body");
 
-  modalDialog.insertBefore(htmlErrorScript, modalDialog.children[1]);
+  if (modalDialog.children.length != 3) {
+    modalDialog.insertBefore(htmlErrorScript, modalDialog.children[1]);
+  }
 };
 //*************************************************** */
 

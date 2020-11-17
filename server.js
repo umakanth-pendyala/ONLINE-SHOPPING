@@ -18,25 +18,6 @@ mongoose.connect(
   }
 );
 
-//middle wares  shifted to index js file
-// app.use(express.static("public"));
-// app.use(
-//   bodyParser.urlencoded({
-//     extended: true,
-//   })
-// );
-// app.set("view engine", "ejs");
-// app.use(
-//   session({
-//     secret: "some-random-secret-key",
-//     resave: true,
-//     saveUninitialized: false,
-//     cookie: {
-//       /*maxAge: 600000*/
-//     },
-//   })
-// );
-
 require("./app/routes")(app);
 
 app.listen(3000, () => console.log("app is running on port 3000"));
